@@ -157,3 +157,221 @@
 // }
 
 // console.log(findLongestSubstring("thisisawesome"));
+
+// function power(b, e) {
+//     if (e === 0) return 1;
+//     if (e === 1) return b;
+//     return b * power(b, e - 1);
+// }
+
+// console.log(power(2, 4));
+
+// function factorial(num) {
+//     if (num === 0) return 1;
+//     return num * factorial(num - 1);
+// }
+// console.log(factorial(4))
+
+// function productOfArray(arr) {
+//     if (arr.length === 0) return 1;
+//     return arr[0] * productOfArray(arr.slice(1));
+// }
+
+// console.log(productOfArray([1, 2, 3, 10]));
+
+// function recursiveRange(n) {
+//     if (n === 0) return 0;
+//     return n + recursiveRange(n - 1);
+// }
+// console.log(recursiveRange(10));
+
+// function fib(n) {
+//     let arr = [1, 1];
+//     if (n <= 2) return arr[n - 1];
+//     function fillArray(n) {
+//         if (arr.length === n) return;
+//         arr.push(arr[arr.length - 2] + arr[arr.length - 1]);
+//         return fillArray(n);
+//     };
+//     fillArray(n);
+//     return arr[n - 1];
+// }
+
+// console.log(fib(35));
+
+// function reverse(s) {
+//     if (typeof s !== "string") return null;
+//     let str_len = s.length;
+//     let reversed = "";
+//     (function ir(s) {
+//         if (reversed.length === str_len) return;
+//         reversed = reversed + s[s.length - 1];
+//         return ir(s.substring(0, s.length - 1));
+//     })(s);
+//     return reversed;
+// }
+
+// console.log(reverse("awsome"));
+
+// function isPalindrome(s) {
+//     if (typeof s !== "string") return null;
+//     let str_len = s.length;
+//     let reversed = "";
+//     (function ir(s) {
+//         if (reversed.length === str_len) return;
+//         reversed = reversed + s[s.length - 1];
+//         return ir(s.substring(0, s.length - 1));
+//     })(s);
+//     return reversed === s;
+// }
+
+// console.log(isPalindrome("amanaplanacanalpandemonium"));
+
+// const isOdd = val => val % 2 !== 0;
+
+// function someRecursive(arr, callback) {
+//     if (arr.length === 0) return false;
+//     if (callback(arr[0])) return true;
+//     return someRecursive(arr.slice(1), callback);
+// }
+
+// console.log(someRecursive([1, 2, 4, 4, 6], isOdd));
+
+// function flatten(arr) {
+//     if (!Array.isArray(arr) || arr.length === 0) return [];
+//     const flattened = [];
+//     (function fltn(r) {
+//         if (r.length === 0) return;
+//         if (Array.isArray(r[0]))
+//             return fltn(r.concat(r[0]).slice(1));
+//         flattened.push(r[0]);
+//         return fltn(r.slice(1));
+//     })(arr);
+//     return flattened;
+// }
+
+// console.log(flatten([1, 2, 3, [4, 5, 6, [0, [1, 3, 5, 6, 777, 88]]]]));
+
+// function capitalizeFirst(arr) {
+//     let capitalized = [];
+//     (function cp(arr) {
+//         if (arr.length === 0) return capitalized;
+//         capitalized.push(arr[0][0].toUpperCase() + arr[0].slice(1));
+//         return cp(arr.slice(1));
+//     })(arr);
+//     return capitalized;
+// }
+// console.log(capitalizeFirst(["fork", "tin", "can"]));
+
+// function nestedEvenSum(obj) {
+//     const evenNums = [];
+//     (function nev(obj) {
+//         if (Object.keys(obj).length === 0) return;
+//         const first = Object.values(obj)[0];
+//         const firstKey = Object.keys(obj)[0];
+//         if (typeof first === "object") {
+//             delete obj[firstKey];
+//             return nev(Object.assign(obj, first));
+//         }
+//         if (typeof first === "number" && first % 2 === 0) evenNums.push(first);
+//         delete obj[firstKey];
+//         return nev(obj);
+//     })(obj);
+//     return evenNums.reduce((st, n) => st + n, 0);
+// }
+
+
+// var obj1 = {
+//     outer: 2,
+//     obj: {
+//         inner: 2,
+//         otherObj: {
+//             superInner: 2,
+//             notANumber: true,
+//             alsoNotANumber: "yup"
+//         }
+//     }
+// }
+
+// var obj2 = {
+//     a: 2,
+//     b: { b: 2, bb: { b: 3, bb: { b: 2 } } },
+//     c: { c: { c: 2 }, cc: 'ball', ccc: 5 },
+//     d: 1,
+//     e: { e: { e: 2 }, ee: 'car' }
+// };
+
+// console.log(nestedEvenSum(obj1));
+// console.log(nestedEvenSum(obj2));
+
+// function capitalizedWords(w) {
+//     if (!Array.isArray(w)) return null;
+//     const capitalized = [];
+//     if (w.length) {
+//         return capitalized.concat([w[0].toUpperCase()]).concat(capitalizedWords(w.slice(1)));
+//     }
+//     return capitalized;
+// }
+
+// let words = ['i', 'am', 'learning', 'recursion'];
+// console.log(capitalizedWords(words)); // ['I', 'AM', 'LEARNING', 'RECURSION']
+
+// function stringifyNumbers(obj) {
+//     var newObj = {};
+//     for (var key in obj) {
+//         if (typeof obj[key] === 'number') {
+//             newObj[key] = obj[key].toString();
+//         } else if (typeof obj[key] === 'object' && !Array.isArray(obj[key])) {
+//             newObj[key] = stringifyNumbers(obj[key]);
+//         } else {
+//             newObj[key] = obj[key];
+//         }
+//     }
+//     return newObj;
+// }
+
+
+// let obj = {
+//     num: 1,
+//     test: [],
+//     data: {
+//         val: 4,
+//         info: {
+//             isRight: true,
+//             random: 66
+//         }
+//     }
+// }
+
+//  console.log(stringifyNumbers(obj));
+
+// function collectStrings(obj) {
+//     const strArry = [];
+//     if (Object.keys(obj).length) {
+//         const first = Object.values(obj)[0];
+//         const firstKey = Object.keys(obj)[0];
+//         delete obj[firstKey];
+//         if (typeof first === "string") return strArry.concat([first]).concat(collectStrings(obj));
+//         if (typeof first === "object") return collectStrings(Object.assign(obj, first));
+//         return collectStrings(obj);
+//     }
+//     return strArry;
+// }
+
+// const obj = {
+//     stuff: "foo",
+//     data: {
+//         val: {
+//             thing: {
+//                 info: "bar",
+//                 moreInfo: {
+//                     evenMoreInfo: {
+//                         weMadeIt: "baz"
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
+
+// console.log(collectStrings(obj)) // ["foo", "bar", "baz"])
