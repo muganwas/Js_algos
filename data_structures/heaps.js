@@ -19,10 +19,12 @@ class BinaryHeap {
         const leftChild = arr[leftChildIndex];
         const rightChild = arr[rightChildIndex];
         const parent = arr[parentIndex];
-        if (
-            (leftChild || rightChild) &&
-            (leftChild > parent || rightChild > parent)
-        ) arr = this.reversePosition(this.swap(arr, parentIndex, leftChild > rightChild ? leftChildIndex : rightChildIndex));
+        if ((leftChild && rightChild) && (leftChild > parent || rightChild > parent))
+            arr = this.reversePosition(this.swap(arr, parentIndex, leftChild > rightChild ? leftChildIndex : rightChildIndex));
+        else if (leftChild && leftChild > parent)
+            arr = this.reversePosition(this.swap(arr, parentIndex, leftChildIndex));
+        else if (rightChild && rightChild > parent)
+            arr = this.reversePosition(this.swap(arr, parentIndex, rightChildIndex));
         return arr;
     }
     insert(value) {
@@ -54,7 +56,7 @@ myBinaryHeap.insert(18);
 myBinaryHeap.insert(27);
 myBinaryHeap.insert(12);
 myBinaryHeap.insert(55);
-// myBinaryHeap.insert(1);
+myBinaryHeap.insert(1);
 // console.log(myBinaryHeap.insert(45));
 console.log(myBinaryHeap.extractMax());
 //console.log(myBinaryHeap.insert(45));
